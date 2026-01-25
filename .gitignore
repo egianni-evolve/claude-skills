@@ -1,0 +1,25 @@
+# Personal configuration files
+.env
+*.local
+
+# Don't commit files with your actual database URLs
+# Keep only the .env.example as a template
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Test files with personal data
+test-data/
+personal-*.md
+
+# Backup files
+*.bak
+*.backup

@@ -1,224 +1,253 @@
-# Claude Productivity Skills - Template Collection
+# Claude Productivity Skills for Notion
 
-A complete productivity system built on Claude Skills and Notion. These templates provide a proven workflow for capture, process, and structure.
+A complete productivity system integrating Claude Skills with Notion databases for seamless thought capture, task management, and goal tracking.
 
-## What's Included
+## 🎯 What This Is
 
-This collection contains 5 interconnected Claude skills that work together:
+Five interconnected Claude Skills that create a complete productivity workflow:
 
-### 1. Action Keeper
-Intelligent task and reminder capture using natural language
-- Routes automatically to Reminders (simple) or Tasks (complex)
-- Semantic project matching
-- Natural date/time parsing
+1. **brain-dump-capture** - Frictionless thought capture
+2. **task-creator** - Convert thoughts into actionable tasks  
+3. **area-tracker** - Organize knowledge by theme
+4. **okr-manager** - Quarterly goal setting and tracking
+5. **weekly-processing** - Systematic review workflow
 
-### 2. Brain Dump
-Zero-friction thought capture without structure
-- Capture verbatim, process later
-- Optional context tagging
-- Minimal confirmation
-
-### 3. Note Processor
-Weekly review and processing of brain dumps
-- Query unprocessed notes
-- Convert to tasks, projects, or save elsewhere
-- Track completion automatically
-
-### 4. Problem Externalizer
-Structured thinking for overwhelming situations
-- 5-phase interview process
-- Separates you from the problem
-- Creates actionable clarity
-
-### 5. Work Structurer
-Organize everything into Notion hierarchy
-- Areas → Projects → Tasks
-- Discovery Mode for unclear goals
-- Full hierarchy creation
-
-## The Complete Workflow
+## 🔄 How They Work Together
 
 ```
-CAPTURE                  PROCESS                    STRUCTURE
-─────────────────────────────────────────────────────────────
-Brain Dump          →   Note Processor        →   Work Structurer
-Action Keeper                                  ↓
-                                              Projects & Tasks
-                        Problem Externalizer  →
+Thought → Brain Dump → Weekly Processing → Task/Area → Link to OKR
 ```
 
-## Installation
+**Example workflow:**
+- Coffee chat generates 3 ideas → Brain dump captures them
+- Weekly review: 1 becomes a task, 1 links to an area, 1 gets discarded
+- Task automatically links to your Q1 Key Result
+- Progress tracked toward quarterly goals
 
-### Prerequisites
+## ⚡ Features
 
-- Claude.ai account (with Skills enabled)
-- Notion workspace
-- Basic understanding of Notion databases
+- **Automatic linking** between brain dumps, tasks, areas, and OKRs
+- **Smart defaults** for tags, priority, and status
+- **Natural language triggers** - no need to memorize exact commands
+- **Two-way relationships** - connected data across all systems
+- **Progress tracking** - see how daily work connects to quarterly goals
 
-### Setup Process
+## 📋 Prerequisites
 
-**For each skill:**
+1. **Claude.ai account** with Skills feature enabled
+2. **Notion workspace** with the following databases:
+   - Brain Dump
+   - Tasks
+   - Areas of Interest
+   - Objectives (OKRs)
+   - Key Results
+   - Progress Log
 
-1. **Create Required Notion Databases**
-   - Follow database setup instructions in each skill's SKILL.md
-   - Note the collection IDs for each database
+## 🛠️ Setup Instructions
 
-2. **Customize the Skill File**
-   - Open SKILL.md
-   - Replace placeholder database IDs with your own
-   - Update examples to match your workflow
-   - Add your project names and contexts
+### Step 1: Create Notion Databases
 
-3. **Package the Skill** (if you have packaging tools)
-   - Or use the .skill file directly if provided
+Create these databases in your Notion workspace. Required fields for each:
 
-4. **Upload to Claude.ai**
-   - Go to Settings → Skills
-   - Click "Upload Skill"
-   - Upload the .skill file or SKILL.md
-   - Enable the skill
+**Brain Dump Database:**
+- Note (title)
+- Status (status: Unprocessed, Processing, Processed, Archived)
+- Source (select: Brain Dump, Meeting Notes, etc.)
+- Priority (select: High, Medium, Low)
+- Tags (multi-select)
+- Action Taken (select)
+- Processing Notes (text)
+- Related Tasks (relation to Tasks)
+- Related Area of Interest (relation to Areas)
 
-5. **Test It**
-   - Try the example commands from the skill documentation
-   - Verify it creates entries in your Notion databases
+**Tasks Database:**
+- Task Name (title)
+- Status (status: To Do, In Progress, Done, etc.)
+- Priority (select: High, Medium, Low)
+- Created Date (date)
+- Tags (multi-select)
+- Description (text)
+- Related Brain Dump (relation to Brain Dump)
+- Related Key Results (relation to Key Results)
+- Related Area of Interest (relation to Areas)
 
-## Recommended Setup Order
+**Areas of Interest Database:**
+- Interest (title)
+- Status (status: Idea Stage, Active Exploration, Learning, Integrated, Archived)
+- Category (multi-select)
+- Date Added (date)
+- Notes & Insights (text)
+- Related Brain Dump (relation to Brain Dump)
+- Related Tasks (relation to Tasks)
 
-1. **Brain Dump** (simplest, one database)
-2. **Action Keeper** (core capture mechanism)
-3. **Problem Externalizer** (no Notion databases needed)
-4. **Work Structurer** (requires Areas + Projects setup)
-5. **Note Processor** (ties everything together)
+**Objectives Database:**
+- Objective (title)
+- Intent (text)
+- Quarter (select: Q1, Q2, Q3, Q4)
+- Status (status: Planning, Active, Completed, Paused, Abandoned)
+- Related Key Results (relation to Key Results)
 
-## Required Notion Databases
+**Key Results Database:**
+- Key Result (title)
+- Target (text)
+- Unit (select: posts, clients, revenue, etc.)
+- Current Progress (number)
+- Status (status: Not Started, On Track, At Risk, Behind, Completed)
+- Related Objective (relation to Objectives)
+- Related Tasks (relation to Tasks)
 
-### Minimal Setup (Action Keeper + Brain Dump)
-- Reminders
-- Tasks
-- Projects (with "General" project)
-- Brain Dump
+**Progress Log Database:**
+- Current Progress (title)
+- Month (select: January-December)
+- Year (select: 2025, 2026, etc.)
+- Progress Notes (text)
+- Related Key Result (relation to Key Results)
 
-### Full Setup (All Skills)
-- Reminders
-- Tasks
-- Projects (with "General" project)
-- Areas of Interest
-- Brain Dump
+### Step 2: Get Your Database URLs
 
-## Customization Guide
+1. Open each database in Notion
+2. Click "..." → "Copy link"
+3. Extract the ID from the URL (the long string of letters/numbers)
 
-### Database IDs
+Example URL: `https://www.notion.so/2ec845ad210e807fb357e485e597ed62`  
+Database ID: `2ec845ad210e807fb357e485e597ed62`
 
-Find your collection IDs:
-1. Open database in Notion
-2. Copy URL from browser
-3. Extract ID between last `/` and `?v=`
-4. Format as `collection://[ID-with-hyphens-at-8-12-16-20]`
+You'll also need the data source collection IDs (found in the database URL when viewing a specific view).
 
-Example:
-- URL: `https://www.notion.so/2eb845ad210e80baabe2d51903515188`
-- ID: `2eb845ad210e80baabe2d51903515188`
-- Formatted: `collection://2eb845ad-210e-80ba-abe2-d51903515188`
+### Step 3: Update SKILL.md Files
 
-### Personal Contexts
+For each skill, replace the placeholder database URLs with your own:
 
-Update these lists in each skill:
-- **Brain Dump**: Related-To contexts (5-10 categories)
-- **Action Keeper**: Active project names
-- **Work Structurer**: Areas of Interest, Active projects
+**In brain-dump-capture/SKILL.md:**
+```markdown
+- Database URL: `https://www.notion.so/YOUR-DATABASE-ID`
+- Data Source: `collection://YOUR-COLLECTION-ID`
+```
 
-### Examples
+**Repeat for all 5 skills**, replacing:
+- Brain Dump database URLs
+- Tasks database URLs  
+- Areas database URLs
+- Objectives database URLs
+- Key Results database URLs
+- Progress Log database URLs
 
-Replace generic examples with ones relevant to your:
-- Work domain
-- Project types
-- Common tasks
-- Life contexts
+### Step 4: Install Skills in Claude.ai
 
-## Integration Patterns
+1. Go to Claude.ai → Settings → Skills
+2. Click "+ Add Skill"
+3. Upload each `.zip` file (or paste SKILL.md content)
+4. Repeat for all 5 skills
 
-**After Problem Externalization:**
-→ Work Structurer creates project structure
-→ Action Keeper creates first tasks
+### Step 5: Test the System
 
-**During Weekly Review:**
-→ Note Processor queries brain dumps
-→ Converts to tasks (Action Keeper) or projects (Work Structurer)
+In a new Claude conversation:
 
-**Daily Capture:**
-→ Brain Dump for random thoughts
-→ Action Keeper for concrete actions
+```
+You: Brain dump: Test the new productivity system
 
-## Best Practices
+Claude: Captured.
 
-### Capture
-- Use Brain Dump liberally - capture everything
-- Use Action Keeper for anything with timing or project context
-- Don't worry about organization during capture
+You: Process my brain dumps
 
-### Process
-- Schedule weekly review sessions
-- Process brain dumps using Note Processor
-- Use Problem Externalizer when feeling stuck
+Claude: You have 1 unprocessed brain dump...
+```
 
-### Structure
-- Define clear project goals (use Discovery Mode)
-- Keep Areas broad, Projects specific
-- Don't create tasks until needed
+If you see this, you're all set!
 
-## Troubleshooting
+## 🎓 Usage Guide
 
-**Skill not triggering:**
-- Check trigger phrases in skill description
-- Try exact phrases from examples
-- Verify skill is enabled in Claude.ai
+### Brain Dump Capture
 
-**Wrong database:**
-- Double-check collection IDs
-- Verify database has required properties
-- Check for typos in collection:// format
+**Trigger phrases:**
+- "Brain dump: [thought]"
+- "Capture this: [idea]"
+- "Remember: [note]"
 
-**Integration not working:**
-- Ensure all referenced skills are installed
-- Verify database relations are set up correctly
-- Check that "General" project exists
+**What it does:** Immediately saves to Notion with smart tags and priority
 
-## Philosophy
+### Task Creator
 
-This system follows these principles:
+**Trigger phrases:**
+- "Create task: [action]"
+- "Make this a task"
+- "Turn my brain dump about X into a task"
 
-**Capture now, organize later**
-- Zero friction during capture
-- Structure during dedicated review time
+**What it does:** Creates actionable tasks with dates, links to brain dumps/OKRs
 
-**Separate person from problem**
-- Problems are external challenges
-- You are not your problems
+### Weekly Processing
 
-**Intentional outcomes**
-- Every project has a goal
-- Goals can evolve
-- "Designed on purpose" not by accident
+**Trigger phrase:** "Process my brain dumps"
 
-**Trust the process**
-- The system handles organization
-- You focus on thinking and doing
+**What it does:** Guides you through each unprocessed item with options:
+- Create Task
+- Add to Area
+- Keep as Reference
+- Discard
 
-## Credits
+### Area Tracker
 
-These skills are based on patterns developed through extensive trial and refinement. They represent proven workflows for productivity with ADHD-friendly design principles.
+**Trigger phrases:**
+- "Create area: [topic]"
+- "Show me my active areas"
+- "What topics am I thinking about most?"
 
-## License
+**What it does:** Organizes your knowledge development by theme
 
-These templates are provided as-is for personal use. Customize freely for your own workflow.
+### OKR Manager
 
-## Support
+**Trigger phrases:**
+- "Create Q1 OKR: [objective]"
+- "Update [key result] to [number]"
+- "How's Q1 looking?"
 
-For questions about:
-- **Claude Skills**: See Anthropic's documentation
-- **Notion Setup**: See Notion's help center
-- **These Templates**: Create an issue in this repository
+**What it does:** Connects daily tasks to quarterly goals
 
-## Version
+## 💡 Best Practices
 
-Template Collection v1.0 - January 2026
+1. **Capture everything** - Process later, capture now
+2. **Weekly processing** - Set recurring time (Friday afternoons)
+3. **Link to OKRs** - Connect tasks to strategic goals
+4. **Review monthly** - Update key result progress
+5. **Archive regularly** - Keep areas and brain dumps current
+
+## 🔧 Customization
+
+Feel free to modify the skills:
+- Add/remove tags
+- Change status options
+- Adjust priority levels
+- Modify trigger phrases
+- Add new fields
+
+Edit skills in Claude.ai → Settings → Skills
+
+## 🤝 Contributing
+
+This system is open for others to use and improve. If you make enhancements:
+- Fork this repo
+- Make your changes
+- Submit a pull request
+
+## 📄 License
+
+MIT License - Use freely, modify as needed
+
+## 🙏 Credits
+
+Built with Claude Skills and Notion API integration.
+
+## ⚠️ Privacy Note
+
+These skills contain database structure but no personal data. When you fork this repo:
+- Replace all database URLs with your own
+- Don't commit files with your actual database IDs to public repos
+- Keep your Notion workspace private
+
+## 📞 Support
+
+Questions? Open an issue or reach out!
+
+---
+
+**Start capturing thoughts, building systems, and achieving goals.** 🚀
